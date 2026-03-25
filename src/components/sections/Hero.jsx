@@ -43,11 +43,30 @@ const Hero = () => {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-20 relative px-4">
       <div className="container mx-auto z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="mb-8 relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary to-purple-500 rounded-full blur-xl opacity-40 animate-pulse"></div>
+            <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-dark-bg overflow-hidden shadow-2xl glass-panel p-1">
+              <img 
+                src="/portfolio-2/profile.jpg" 
+                alt="Premkumar" 
+                className="w-full h-full object-cover rounded-full"
+                onError={(e) => {
+                  e.target.src = "https://ui-avatars.com/api/?name=Prem+Kumar&background=3b82f6&color=fff&size=256";
+                }}
+              />
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-block mb-6 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary text-sm font-semibold tracking-wide"
           >
             Welcome to my portfolio

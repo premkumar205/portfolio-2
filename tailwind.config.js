@@ -8,14 +8,15 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         dark: {
-          bg: '#050505',
-          card: '#111111',
-          border: '#2a2a2a',
-          text: '#f9fafb',
-          muted: '#9ca3af'
+          bg: '#030303',
+          card: '#080808',
+          border: '#1a1a1a',
+          text: '#ededed',
+          muted: '#888888'
         },
         primary: {
           DEFAULT: '#3b82f6',

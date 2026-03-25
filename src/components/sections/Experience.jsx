@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Briefcase, GraduationCap, Award } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Briefcase, GraduationCap, Award, ExternalLink } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
@@ -50,36 +50,38 @@ const Experience = () => {
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-6"></div>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative border-l border-dark-border ml-3 md:ml-6 space-y-12 pb-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="relative border-l border-white/10 ml-4 md:ml-0 md:space-y-16 space-y-12 pb-8">
             {experiences.map((exp, idx) => (
               <motion.div 
                 key={idx}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.2 }}
-                className="relative pl-8 md:pl-12"
+                transition={{ duration: 0.6, delay: idx * 0.15, type: 'spring', stiffness: 100 }}
+                className="relative pl-8 md:pl-16 group"
               >
-                {/* Timeline Dot */}
-                <div className="absolute -left-[21px] top-1 h-10 w-10 flex items-center justify-center rounded-full bg-dark-bg border border-primary/50 text-primary shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-                  {getIcon(exp.type)}
+                {/* Minimalist Timeline Dot */}
+                <div className="absolute -left-[5px] top-2 h-[9px] w-[9px] rounded-full bg-dark-bg border-2 border-dark-muted group-hover:border-primary group-hover:bg-primary transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.8)] z-10" />
+                
+                {/* Horizontal connection line that reveals on hover (Desktop only) */}
+                <div className="hidden md:block absolute left-0 top-3 h-px w-10 bg-gradient-to-r from-primary/50 to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 z-0" />
+
+                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2 gap-2">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white tracking-tight group-hover:text-primary transition-colors">{exp.title}</h3>
+                  <span className="text-sm font-medium text-dark-muted font-mono tracking-wider uppercase shrink-0">
+                    {exp.period}
+                  </span>
                 </div>
                 
-                <div className="glass-panel p-6 md:p-8 rounded-2xl hover:border-primary/30 transition-colors">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                    <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
-                    <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20 shrink-0">
-                      {exp.period}
-                    </span>
-                  </div>
-                  <h4 className="text-lg font-medium text-dark-muted mb-4 flex items-center gap-2">
-                    {exp.organization}
-                  </h4>
-                  <p className="text-dark-text/70 leading-relaxed">
-                    {exp.description}
-                  </p>
-                </div>
+                <h4 className="text-base font-medium text-dark-text/80 mb-4 flex items-center gap-2">
+                  {getIcon(exp.type)}
+                  {exp.organization}
+                </h4>
+                
+                <p className="text-dark-muted leading-relaxed font-light max-w-2xl">
+                  {exp.description}
+                </p>
               </motion.div>
             ))}
           </div>

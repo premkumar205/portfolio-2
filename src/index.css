@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import '@fontsource/inter/300.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
 
 @tailwind base;
 @tailwind components;
@@ -9,17 +15,20 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-dark-bg text-dark-text min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-white font-sans;
+    @apply bg-dark-bg text-dark-text min-h-screen overflow-x-hidden selection:bg-primary/30 selection:text-white font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
   }
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-dark-card/40 backdrop-blur-xl border border-dark-border shadow-2xl;
+    @apply bg-white/[0.02] backdrop-blur-2xl border border-white/[0.05] shadow-[0_8px_32px_rgba(0,0,0,0.5)];
   }
   
   .glass-nav {
-    @apply bg-dark-bg/80 backdrop-blur-md border-b border-white/5 shadow-sm;
+    @apply bg-dark-bg/60 backdrop-blur-lg border-b border-white/[0.04];
   }
   
   .gradient-text {

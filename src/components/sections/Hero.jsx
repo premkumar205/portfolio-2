@@ -53,7 +53,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-tr from-primary to-purple-500 rounded-full blur-xl opacity-40 animate-pulse"></div>
             <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-dark-bg overflow-hidden shadow-2xl glass-panel p-1">
               <img 
-                src="/portfolio-2/profile.jpg" 
+                src="/portfolio-2/prem.jpg" 
                 alt="Premkumar" 
                 className="w-full h-full object-cover rounded-full"
                 onError={(e) => {

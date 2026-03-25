@@ -52,13 +52,13 @@ const Contact = () => {
                 </div>
               </a>
 
-              <a href="#" className="flex items-center gap-4 p-4 rounded-xl glass-panel hover:-translate-y-1 transition-transform group">
+              <a href="https://www.linkedin.com/in/chilkamarri-prem-kumar" target="_blank" rel="noreferrer" className="flex items-center gap-4 p-4 rounded-xl glass-panel hover:-translate-y-1 transition-transform group">
                 <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                   <Linkedin size={24} />
                 </div>
                 <div>
                   <p className="text-sm text-dark-muted mb-1">LinkedIn</p>
-                  <p className="font-medium">linkedin.com/in/premkumar</p>
+                  <p className="font-medium truncate max-w-[200px] sm:max-w-xs">/in/chilkamarri-prem-kumar</p>
                 </div>
               </a>
             </div>

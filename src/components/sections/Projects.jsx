@@ -96,8 +96,13 @@ const Projects = () => {
                         <Github size={24} />
                       </div>
                       <div className="flex space-x-3 text-dark-muted">
-                        <a href={project.html_url} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
-                          <ExternalLink size={20} />
+                        {project.homepage && project.homepage !== "" && (
+                          <a href={project.homepage} target="_blank" rel="noreferrer" title="Live Demo" className="hover:text-primary transition-colors flex items-center gap-1">
+                            <ExternalLink size={20} />
+                          </a>
+                        )}
+                        <a href={project.html_url} target="_blank" rel="noreferrer" title="Source Code" className="hover:text-white transition-colors flex items-center gap-1">
+                          <Github size={20} />
                         </a>
                       </div>
                     </div>
